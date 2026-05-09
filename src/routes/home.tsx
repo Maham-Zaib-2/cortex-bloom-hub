@@ -1,15 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Bell, Users, AlertTriangle, TrendingUp, ChevronRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { Avatar } from "@/components/Avatar";
 import { sentimentTrend, atRisk } from "@/lib/data";
 import { LineChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid } from "recharts";
 
-export const Route = createFileRoute("/home")({
-  component: HomePage,
-});
-
-function HomePage() {
+export default function HomePage() {
   return (
     <div>
       {/* Header */}
