@@ -14,12 +14,12 @@ export function MobileShell() {
   const loc = useLocation();
   const isLogin = loc.pathname === "/" || loc.pathname === "/login";
   return (
-    <div className="min-h-screen w-full flex items-start justify-center py-4 sm:py-8" style={{ background: "linear-gradient(135deg,#E6ECFF 0%,#ECE6FF 50%,#E6F0FF 100%)" }}>
+    <div className="w-full flex items-center justify-center sm:py-6" style={{ minHeight: "100dvh", background: "linear-gradient(135deg,#E6ECFF 0%,#ECE6FF 50%,#E6F0FF 100%)" }}>
       <div
-        className="relative w-[390px] max-w-full bg-[#F0F4FF] overflow-hidden flex flex-col"
+        className="relative w-[390px] max-w-full bg-[#F0F4FF] overflow-hidden flex flex-col mx-auto"
         style={{
-          height: "844px",
-          borderRadius: 36,
+          height: "min(844px, 100dvh)",
+          borderRadius: "clamp(0px, 4vw, 36px)",
           boxShadow: "0 30px 80px -20px rgba(80,90,180,0.35), 0 0 0 8px #fff, 0 0 0 9px #E5E8FF",
         }}
       >
