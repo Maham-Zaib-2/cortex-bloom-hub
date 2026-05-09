@@ -16,19 +16,19 @@ export function MobileShell() {
   return (
     <div className="min-h-screen w-full flex items-start justify-center py-4 sm:py-8" style={{ background: "linear-gradient(135deg,#E6ECFF 0%,#ECE6FF 50%,#E6F0FF 100%)" }}>
       <div
-        className="relative w-[390px] max-w-full bg-[#F0F4FF] overflow-hidden"
+        className="relative w-[390px] max-w-full bg-[#F0F4FF] overflow-hidden flex flex-col"
         style={{
-          minHeight: "844px",
+          height: "844px",
           borderRadius: 36,
           boxShadow: "0 30px 80px -20px rgba(80,90,180,0.35), 0 0 0 8px #fff, 0 0 0 9px #E5E8FF",
         }}
       >
-        <div key={loc.pathname} className="animate-slide-in-right pb-20 min-h-[844px]">
+        <div key={loc.pathname} className="animate-slide-in-right flex-1 overflow-y-auto scrollbar-hide" style={{ paddingBottom: isLogin ? 0 : 16 }}>
           <Outlet />
         </div>
         {!isLogin && (
           <nav
-            className="absolute bottom-0 left-0 right-0 bg-white flex items-stretch justify-around"
+            className="shrink-0 bg-white flex items-stretch justify-around"
             style={{ height: 64, borderTop: "1px solid #EEF0FF" }}
           >
             {tabs.map((t) => {
