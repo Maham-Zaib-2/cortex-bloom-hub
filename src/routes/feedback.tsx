@@ -1,15 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { surveys } from "@/lib/data";
 import { ChevronRight, Send, Calendar } from "lucide-react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/feedback")({
-  component: FeedbackPage,
-});
-
-function FeedbackPage() {
+export default function FeedbackPage() {
   const [tab, setTab] = useState<"active" | "send">("active");
   return (
     <div>
