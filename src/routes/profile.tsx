@@ -1,14 +1,10 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Avatar } from "@/components/Avatar";
 import { Bell, Sliders, Globe, Shield, HelpCircle, LogOut, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/profile")({
-  component: ProfilePage,
-});
-
-function ProfilePage() {
+export default function ProfilePage() {
   const nav = useNavigate();
   const items = [
     { icon: Bell, label: "Notification Settings", sub: "Email, push, daily digest", grad: "linear-gradient(135deg,#7AAFD4,#A78BD4)" },
