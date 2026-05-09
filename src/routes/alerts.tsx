@@ -1,15 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Avatar } from "@/components/Avatar";
 import { alerts } from "@/lib/data";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/alerts")({
-  component: AlertsPage,
-});
-
-function AlertsPage() {
+export default function AlertsPage() {
   const [filter, setFilter] = useState<"all" | "high" | "follow">("all");
   const filtered = alerts.filter((a) =>
     filter === "all" ? true : filter === "high" ? a.priority === "high" : a.tag === "Follow-up"
