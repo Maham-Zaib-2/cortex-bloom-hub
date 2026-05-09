@@ -1,4 +1,4 @@
-import { Outlet, Link, useLocation } from "@tanstack/react-router";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import { Home, BarChart3, MessageSquare, Bell, User } from "lucide-react";
 import { Toaster } from "sonner";
 

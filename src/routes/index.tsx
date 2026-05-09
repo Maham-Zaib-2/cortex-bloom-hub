@@ -1,14 +1,10 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/")({
-  component: LoginPage,
-});
-
-function LoginPage() {
+export default function LoginPage() {
   const nav = useNavigate();
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("maham@cortex.app");
@@ -17,7 +13,7 @@ function LoginPage() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Welcome back, Maham!");
-    setTimeout(() => nav({ to: "/home" }), 400);
+    setTimeout(() => nav("/home"), 400);
   };
 
   return (

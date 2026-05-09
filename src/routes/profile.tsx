@@ -1,14 +1,10 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Avatar } from "@/components/Avatar";
 import { Bell, Sliders, Globe, Shield, HelpCircle, LogOut, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/profile")({
-  component: ProfilePage,
-});
-
-function ProfilePage() {
+export default function ProfilePage() {
   const nav = useNavigate();
   const items = [
     { icon: Bell, label: "Notification Settings", sub: "Email, push, daily digest", grad: "linear-gradient(135deg,#7AAFD4,#A78BD4)" },
@@ -53,7 +49,7 @@ function ProfilePage() {
               </button>
             );
           })}
-          <button onClick={() => { toast.success("Logged out"); setTimeout(() => nav({ to: "/" }), 400); }} className="w-full flex items-center gap-3 p-3.5 tap border-t border-[#EEF0FF]">
+          <button onClick={() => { toast.success("Logged out"); setTimeout(() => nav("/"), 400); }} className="w-full flex items-center gap-3 p-3.5 tap border-t border-[#EEF0FF]">
             <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(232,144,122,0.18)" }}>
               <LogOut size={16} color="#E8907A" />
             </div>

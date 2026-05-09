@@ -1,15 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Avatar } from "@/components/Avatar";
 import { alerts } from "@/lib/data";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/alerts")({
-  component: AlertsPage,
-});
-
-function AlertsPage() {
+export default function AlertsPage() {
   const [filter, setFilter] = useState<"all" | "high" | "follow">("all");
   const filtered = alerts.filter((a) =>
     filter === "all" ? true : filter === "high" ? a.priority === "high" : a.tag === "Follow-up"
@@ -48,7 +44,7 @@ function AlertsPage() {
                   <div className="flex items-center justify-between mt-2">
                     <div className="text-[10px] text-slate-400">{a.time}</div>
                     <div className="flex gap-1.5">
-                      <Link to="/customer/$id" params={{ id: a.id }} className="px-3 py-1 rounded-lg text-[11px] font-semibold tap" style={{ border: "1px solid #7AAFD4", color: "#7AAFD4" }}>View Profile</Link>
+                      <Link to={`/customer/${a.id}`} className="px-3 py-1 rounded-lg text-[11px] font-semibold tap" style={{ border: "1px solid #7AAFD4", color: "#7AAFD4" }}>View Profile</Link>
                       <button onClick={() => toast.success(`Resolved alert for ${a.name}`)} className="px-3 py-1 rounded-lg text-[11px] font-semibold text-white tap" style={{ background: "#7EC48A" }}>Resolve</button>
                     </div>
                   </div>

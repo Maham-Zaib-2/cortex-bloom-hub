@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
 export function Header({ title, back, right }: { title: string; back?: string; right?: React.ReactNode }) {

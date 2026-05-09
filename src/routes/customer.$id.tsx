@@ -1,13 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Avatar } from "@/components/Avatar";
 import { interactions } from "@/lib/data";
 import { Phone, Tag, MessageSquare, AlertTriangle, ArrowRight, Mail, MessageCircle, Share2 } from "lucide-react";
 import { toast } from "sonner";
-
-export const Route = createFileRoute("/customer/$id")({
-  component: CustomerDetailPage,
-});
 
 const ICON: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
   Email: Mail, "Live Chat": MessageCircle, "Social Media": Share2,
@@ -17,8 +13,8 @@ function nameFromId(id: string) {
   return id.split("-").map(p => p[0].toUpperCase() + p.slice(1)).join(" ");
 }
 
-function CustomerDetailPage() {
-  const { id } = Route.useParams();
+export default function CustomerDetailPage() {
+  const { id = "" } = useParams();
   const name = nameFromId(id);
   return (
     <div>

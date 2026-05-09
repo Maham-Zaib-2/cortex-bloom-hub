@@ -1,15 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { responseDist, responses } from "@/lib/data";
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip, Cell, CartesianGrid } from "recharts";
 import { Star, Download } from "lucide-react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/survey-results")({
-  component: SurveyResultsPage,
-});
-
-function SurveyResultsPage() {
+export default function SurveyResultsPage() {
   return (
     <div>
       <Header title="Customer Satisfaction Survey" back="/feedback" />

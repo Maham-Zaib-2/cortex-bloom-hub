@@ -1,15 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Avatar } from "@/components/Avatar";
 import { leaderboard, loyaltyTrend } from "@/lib/data";
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, Area, AreaChart } from "recharts";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/loyalty")({
-  component: LoyaltyPage,
-});
-
-function LoyaltyPage() {
+export default function LoyaltyPage() {
   const atRisk = leaderboard.filter((l) => l.score < 65);
   return (
     <div>

@@ -1,15 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Bell, Users, AlertTriangle, TrendingUp, ChevronRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { Avatar } from "@/components/Avatar";
 import { sentimentTrend, atRisk } from "@/lib/data";
 import { LineChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid } from "recharts";
 
-export const Route = createFileRoute("/home")({
-  component: HomePage,
-});
-
-function HomePage() {
+export default function HomePage() {
   return (
     <div>
       {/* Header */}
@@ -85,7 +81,7 @@ function HomePage() {
         </div>
         <div className="space-y-2">
           {atRisk.map((c) => (
-            <Link key={c.id} to="/customer/$id" params={{ id: c.id }} className="card-soft p-3 flex items-center gap-3 tap">
+            <Link key={c.id} to={`/customer/${c.id}`} className="card-soft p-3 flex items-center gap-3 tap">
               <Avatar name={c.name} size={42} />
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
