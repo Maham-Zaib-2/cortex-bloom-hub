@@ -1,14 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { ChevronDown } from "lucide-react";
 import { Header } from "@/components/Header";
 import { npsHistory, sentimentBreakdown, channels } from "@/lib/data";
 import { AreaChart, Area, ResponsiveContainer, XAxis, YAxis, Tooltip, PieChart, Pie, Cell, BarChart, Bar, CartesianGrid } from "recharts";
 
-export const Route = createFileRoute("/analytics")({
-  component: AnalyticsPage,
-});
-
-function AnalyticsPage() {
+export default function AnalyticsPage() {
   return (
     <div>
       <Header
